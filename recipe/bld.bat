@@ -8,7 +8,8 @@ move fonts "%mathjax%\" || exit 1
 move jax "%mathjax%\" || exit 1
 move localization "%mathjax%\" || exit 1
 move test "%mathjax%\" || exit 1
-move unpacked "%mathjax%\" || exit 1
+REM move unpacked "%mathjax%\" || exit 1
+robocopy "%cd%\unpacked" "%mathjax%\unpacked" /E || exit 1
 
 del /q "*.md" ".gitignore" ".travis.yml" "bower.json" "composer.json" "latest.js" "package.json" || exit 1
 xcopy /s "%cd%" "%mathjax%" || exit 1
