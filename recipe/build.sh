@@ -10,14 +10,8 @@ else
     bin_dir="$PREFIX/bin"
 fi
 
-
-
-
-
 mkdir -p "$mathjax"
 mv ./es5 "$mathjax/"
-
-
 
 mkdir -p "${bin_dir}"
 cp "${RECIPE_DIR}/mathjax-path" "${bin_dir}/"
