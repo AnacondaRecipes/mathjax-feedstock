@@ -1,7 +1,8 @@
 set "mathjax=%LIBRARY_LIB%\mathjax"
 mkdir "%mathjax%" || exit 1
 
-move config "%mathjax%\" || exit 1
+REM move config "%mathjax%\" || exit 1
+robocopy "%cd%\config" "%mathjax%\config" /E || exit 1
 move docs "%mathjax%\" || exit 1
 move extensions "%mathjax%\" || exit 1
 move fonts "%mathjax%\" || exit 1

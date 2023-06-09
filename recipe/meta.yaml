@@ -11,10 +11,9 @@ source:
 
 build:
   number: 0
+  skip: true  # [not win]
 
-    #requirements:
-    #  build:
-    #    - m2-bash  # [win]
+requirements:
 
 test:
   requires:
