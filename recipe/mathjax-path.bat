@@ -1,11 +1,10 @@
-@echo off
+setlocal enabledelayedexpansion
+
+REM @echo off
 REM script_dir == [env_root]\Scripts\
-set "script_dir=%~dp0"
-tree %script_dir
-echo %script_dir:~0,-9%\Library\lib\mathjax\es5%
-set "test= %script_dir:~0,-9%\Library\lib\mathjax\es5%"
-tree %test
-set "mathjax=%script_dir:~0,-9%\Library\lib\mathjax\es5\"
+REM set "script_dir=%~dp0"
+REM set "mathjax=%script_dir:~0,-9%\Library\lib\mathjax\es5\"
+set "mathjax=%LIBRARY_LIB%\mathjax\es5\"
 if exist "%mathjax%" (
     echo %mathjax%
 ) else (
