@@ -3,12 +3,18 @@ mkdir "%mathjax%" || exit 1
 
 REM move config "%mathjax%\" || exit 1
 robocopy "%cd%\config" "%mathjax%\config" /E || exit 1
-move docs "%mathjax%\" || exit 1
-move extensions "%mathjax%\" || exit 1
-move fonts "%mathjax%\" || exit 1
-move jax "%mathjax%\" || exit 1
-move localization "%mathjax%\" || exit 1
-move test "%mathjax%\" || exit 1
+REM move docs "%mathjax%\" || exit 1
+robocopy "%cd%\docs" "%mathjax%\docs" /E || exit 1
+REM move extensions "%mathjax%\" || exit 1
+robocopy "%cd%\extensions" "%mathjax%\extensions" /E || exit 1
+REM move fonts "%mathjax%\" || exit 1
+robocopy "%cd%\fonts" "%mathjax%\fonts" /E || exit 1
+REM move jax "%mathjax%\" || exit 1
+robocopy "%cd%\jax" "%mathjax%\jax" /E || exit 1
+REM move localization "%mathjax%\" || exit 1
+robocopy "%cd%\localization" "%mathjax%\lacalization" /E || exit 1
+REM move test "%mathjax%\" || exit 1
+robocopy "%cd%\test" "%mathjax%\test" /E || exit 1
 REM move unpacked "%mathjax%\" || exit 1
 robocopy "%cd%\unpacked" "%mathjax%\unpacked" /E || exit 1
 
