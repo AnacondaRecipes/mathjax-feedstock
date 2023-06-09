@@ -11,17 +11,14 @@ source:
 
 build:
   number: 0
-  skip: true  # [not win]
 
 requirements:
   build:
     - m2-bash  # [win]
-      #- posix  # [win]
 
 test:
   requires:
     - m2-bash  # [win]
-      #- posix  # [win]
   commands:
     - mathjax-path  # [unix]
     - test -f "$(mathjax-path)latest.js"  # [unix]
