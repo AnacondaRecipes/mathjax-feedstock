@@ -15,6 +15,7 @@ build:
 requirements:
   build:
     - m2-bash  # [win]
+  host:
 
 test:
   requires:
@@ -29,7 +30,14 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  summary: Beautiful math in all browsers. MathJax is an open-source JavaScript display engine for LaTeX, MathML, and AsciiMath notation that works in all browsers. (use mathjax-path script)
+  summary: |
+    Beautiful math in all browsers. MathJax is an open-source JavaScript display engine 
+    for LaTeX, MathML, and AsciiMath notation that works in all browsers. (use mathjax-path script)
+  description: |
+    MathJax is a JavaScript library that enables the rendering of mathematical equations 
+    and symbols on web pages. It provides a powerful and flexible solution for displaying
+    math content in a browser without the need for plugins or specific fonts. MathJax supports 
+    a wide range of math markup languages, including LaTeX, MathML, and AsciiMath.
   doc_url: https://github.com/mathjax/MathJax
   dev_url: https://github.com/mathjax/MathJax
 
