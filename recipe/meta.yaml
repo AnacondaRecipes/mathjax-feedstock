@@ -16,14 +16,12 @@ build:
 requirements:
   build:
     - m2-bash  # [win]
-      #- m2-base  # [win]
-    - posix  # [win]
+      #- posix  # [win]
 
 test:
   requires:
     - m2-bash  # [win]
-      #- m2-base  # [win]
-    - posix  # [win]
+      #- posix  # [win]
   commands:
     - mathjax-path  # [unix]
     - test -f "$(mathjax-path)latest.js"  # [unix]
