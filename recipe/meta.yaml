@@ -42,8 +42,6 @@ about:
   dev_url: https://github.com/mathjax/MathJax
 
 extra:
-  copy_test_source_files: true
-  final: true
   recipe-maintainers:
     - kiwi0fruit
     - tdegeus
