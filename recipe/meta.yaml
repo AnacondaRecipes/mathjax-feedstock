@@ -1,5 +1,5 @@
 {% set name = "mathjax" %}
-{% set version = "3.2.2" %}
+{% set version = "2.7.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,20 @@ package:
 
 source:
   url: https://github.com/mathjax/MathJax/archive/{{ version }}.tar.gz
-  sha256: 4206b9645a97f431018d0b6c4021c98607d49ba4dc129f4f2ecce675e2fcba11
+  sha256: a25e5736553eef7b05ba00df133ad36d8f7b3b967f1e32d2f7505ac77427946f
 
 build:
   number: 0
 
+requirements:
+  build:
+    - m2-bash  # [win]
+
 test:
+  requires:
+    - m2-bash  # [win]
   commands:
     - mathjax-path  # [unix]
-    - test -f "$(mathjax-path)latest.js"  # [unix]
     - cmd /c "%PREFIX%\Scripts\mathjax-path.bat"  # [win]
     - bash "%PREFIX%\Scripts\mathjax-path"  # [win]
 
@@ -29,6 +34,8 @@ about:
   dev_url: https://github.com/mathjax/MathJax
 
 extra:
+  copy_test_source_files: true
+  final: true
   recipe-maintainers:
     - kiwi0fruit
     - tdegeus

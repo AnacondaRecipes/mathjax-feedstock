@@ -2,27 +2,25 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if [[ "$OSTYPE" == "msys" ]]; then
-    mathjax="$(cygpath "${LIBRARY_LIB}")/mathjax"
-    bin_dir="$(cygpath "$SCRIPTS")"
-else
-    mathjax="$PREFIX/lib/mathjax"
-    bin_dir="$PREFIX/bin"
-fi
-
-
-
-
-
+mathjax="$PREFIX/lib/mathjax"
 mkdir -p "$mathjax"
-mv ./es5 "$mathjax/"
 
+mv config "$mathjax/"
+mv docs "$mathjax/"
+mv extensions "$mathjax/"
+mv fonts "$mathjax/"
+mv jax "$mathjax/"
+mv localization "$mathjax/"
+mv test "$mathjax/"
+mv unpacked "$mathjax/"
 
+rm *.md ".gitignore" ".travis.yml" "bower.json" "composer.json" "latest.js" "package.json" || exit 1
+cwd="$(pwd)"
+cp -r "$cwd/." "$mathjax/"
+cd "$mathjax"
+rm *.sh LICENSE
+cd "$cwd"
 
-mkdir -p "${bin_dir}"
-cp "${RECIPE_DIR}/mathjax-path" "${bin_dir}/"
-if [[ "$OSTYPE" == "msys" ]]; then
-    cp "${RECIPE_DIR}/mathjax-path.bat" "${bin_dir}/"
-else
-    chmod +x "${bin_dir}/mathjax-path"
-fi
+mkdir -p "$PREFIX/bin"
+cp "${RECIPE_DIR}/mathjax-path" "$PREFIX/bin/"
+chmod +x "$PREFIX/bin/mathjax-path"
