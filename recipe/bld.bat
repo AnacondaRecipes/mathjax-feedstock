@@ -20,10 +20,13 @@ echo "ERRORLEVEL: %ERRORLEVEL%"
 if %ERRORLEVEL% GEQ 8 exit 1
 REM if errorlevel 1 exit 1
 
-move fonts "%mathjax%\"
+robocopy "%cd%\fonts" "%mathjax%\fonts" /E
+REM move fonts "%mathjax%\"
 echo "ERRORLEVEL: %ERRORLEVEL%"
 if %ERRORLEVEL% GEQ 8 exit 1
 REM if errorlevel 1 exit 1
+rmdir /S /Q "%cd%\fonts"
+echo "ERRORLEVEL: %ERRORLEVEL%"
 
 move jax "%mathjax%\"
 echo "ERRORLEVEL: %ERRORLEVEL%"
