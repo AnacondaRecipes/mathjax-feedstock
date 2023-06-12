@@ -1,29 +1,29 @@
 set "mathjax=%LIBRARY_LIB%\mathjax"
 mkdir "%mathjax%" || exit 1
 
-REM move config "%mathjax%\" || exit 1
-robocopy "%cd%\config" "%mathjax%\config" /E
+move config "%mathjax%\"
+REM robocopy "%cd%\config" "%mathjax%\config" /E
 if %ERRORLEVEL% GEQ 8 exit 1
-REM move docs "%mathjax%\" || exit 1
-robocopy "%cd%\docs" "%mathjax%\docs" /E
+move docs "%mathjax%\"
+REM robocopy "%cd%\docs" "%mathjax%\docs" /E
 if %ERRORLEVEL% GEQ 8 exit 1
-REM move extensions "%mathjax%\" || exit 1
-robocopy "%cd%\extensions" "%mathjax%\extensions" /E
+move extensions "%mathjax%\"
+REM robocopy "%cd%\extensions" "%mathjax%\extensions" /E
 if %ERRORLEVEL% GEQ 8 exit 1
-REM move fonts "%mathjax%\" || exit 1
-robocopy "%cd%\fonts" "%mathjax%\fonts" /E
+move fonts "%mathjax%\"
+REM robocopy "%cd%\fonts" "%mathjax%\fonts" /E
 if %ERRORLEVEL% GEQ 8 exit 1
-REM move jax "%mathjax%\" || exit 1
-robocopy "%cd%\jax" "%mathjax%\jax" /E
+move jax "%mathjax%\"
+REM robocopy "%cd%\jax" "%mathjax%\jax" /E
 if %ERRORLEVEL% GEQ 8 exit 1
-REM move localization "%mathjax%\" || exit 1
-robocopy "%cd%\localization" "%mathjax%\lacalization" /E
+move localization "%mathjax%\"
+REM robocopy "%cd%\localization" "%mathjax%\lacalization" /E
 if %ERRORLEVEL% GEQ 8 exit 1
-REM move test "%mathjax%\" || exit 1
-robocopy "%cd%\test" "%mathjax%\test" /E
+move test "%mathjax%\"
+REM robocopy "%cd%\test" "%mathjax%\test" /E
 if %ERRORLEVEL% GEQ 8 exit 1
-REM move unpacked "%mathjax%\" || exit 1
-robocopy "%cd%\unpacked" "%mathjax%\unpacked" /E
+move unpacked "%mathjax%\"
+REM robocopy "%cd%\unpacked" "%mathjax%\unpacked" /E
 if %ERRORLEVEL% GEQ 8 exit 1
 
 del /q "*.md" ".gitignore" ".travis.yml" "bower.json" "composer.json" "latest.js" "package.json" || exit 1
