@@ -8,6 +8,7 @@ mkdir -p "$mathjax" || exit 1
 mv config "$mathjax/" || exit 1
 mv docs "$mathjax/" || exit 1
 mv extensions "$mathjax/" || exit 1
+# Unable to move fonts, copy instead
 cp -r fonts "$mathjax/" || exit 1
 rm -rf fonts
 mv jax "$mathjax/" || exit 1

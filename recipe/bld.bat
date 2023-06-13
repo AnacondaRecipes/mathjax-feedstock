@@ -11,10 +11,9 @@ if errorlevel 1 exit 1
 move extensions "%mathjax%\"
 if errorlevel 1 exit 1
 
+REM Unable to move fonts, copy instead.
 robocopy "%cd%\fonts" "%mathjax%\fonts" /E
-REM move fonts "%mathjax%\"
 if %ERRORLEVEL% GEQ 2 exit 1
-REM if errorlevel 1 exit 1
 rmdir /S /Q "%cd%\fonts"
 
 move jax "%mathjax%\"
