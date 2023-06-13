@@ -3,13 +3,13 @@ set -euo pipefail
 IFS=$'\n\t'
 
 mathjax="$PREFIX/lib/mathjax"
-mkdir -p "$mathjax"
-[ $? -ne 0 ] || exit 1
+mkdir -p "$mathjax" || exit 1
 
 mv config "$mathjax/" || exit 1
 mv docs "$mathjax/" || exit 1
 mv extensions "$mathjax/" || exit 1
-mv fonts "$mathjax/" || exit 1
+cp -r fonts "$mathjax/" || exit 1
+rm -rf fonts
 mv jax "$mathjax/" || exit 1
 mv localization "$mathjax/" || exit 1
 mv test "$mathjax/" || exit 1

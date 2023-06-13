@@ -11,13 +11,11 @@ if errorlevel 1 exit 1
 move extensions "%mathjax%\"
 if errorlevel 1 exit 1
 
-REM robocopy "%cd%\fonts" "%mathjax%\fonts" /E
-move fonts "%mathjax%\"
-REM if %ERRORLEVEL% GEQ 8 exit 1
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if errorlevel 1 exit 1
-REM rmdir /S /Q "%cd%\fonts"
-REM echo "ERRORLEVEL: %ERRORLEVEL%"
+robocopy "%cd%\fonts" "%mathjax%\fonts" /E
+REM move fonts "%mathjax%\"
+if %ERRORLEVEL% GEQ 2 exit 1
+REM if errorlevel 1 exit 1
+rmdir /S /Q "%cd%\fonts"
 
 move jax "%mathjax%\"
 if errorlevel 1 exit 1
