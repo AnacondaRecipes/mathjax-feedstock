@@ -1,63 +1,43 @@
-dir /B
-
 set "mathjax=%LIBRARY_LIB%\mathjax"
 mkdir "%mathjax%"
-echo "ERRORLEVEL: %ERRORLEVEL%"
 if errorlevel 1 exit 1
 
 move config "%mathjax%\"
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
+if errorlevel 1 exit 1
 
 move docs "%mathjax%\"
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
+if errorlevel 1 exit 1
 
 move extensions "%mathjax%\"
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
+if errorlevel 1 exit 1
 
-robocopy "%cd%\fonts" "%mathjax%\fonts" /E
-REM move fonts "%mathjax%\"
+REM robocopy "%cd%\fonts" "%mathjax%\fonts" /E
+move fonts "%mathjax%\"
+REM if %ERRORLEVEL% GEQ 8 exit 1
 echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
-rmdir /S /Q "%cd%\fonts"
-echo "ERRORLEVEL: %ERRORLEVEL%"
+if errorlevel 1 exit 1
+REM rmdir /S /Q "%cd%\fonts"
+REM echo "ERRORLEVEL: %ERRORLEVEL%"
 
 move jax "%mathjax%\"
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
+if errorlevel 1 exit 1
 
 move localization "%mathjax%\"
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
+if errorlevel 1 exit 1
 
 move test "%mathjax%\"
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
+if errorlevel 1 exit 1
 
 move unpacked "%mathjax%\"
-echo "ERRORLEVEL: %ERRORLEVEL%"
-if %ERRORLEVEL% GEQ 8 exit 1
-REM if errorlevel 1 exit 1
+if errorlevel 1 exit 1
 
 del /q "*.md" ".gitignore" ".travis.yml" "bower.json" "composer.json" "latest.js" "package.json"
-echo "ERRORLEVEL: %ERRORLEVEL%"
 if errorlevel 1 exit 1
 
 xcopy /s "%cd%" "%mathjax%"
-echo "ERRORLEVEL: %ERRORLEVEL%"
 if errorlevel 1 exit 1
 
 del /q "%mathjax%\*.bat" "%mathjax%\LICENSE"
-echo "ERRORLEVEL: %ERRORLEVEL%"
 if errorlevel 1 exit 1
 
 if not exist "%SCRIPTS%" mkdir "%SCRIPTS%"
