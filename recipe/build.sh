@@ -2,27 +2,14 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if [[ "$OSTYPE" == "msys" ]]; then
-    mathjax="$(cygpath "${LIBRARY_LIB}")/mathjax"
-    bin_dir="$(cygpath "$SCRIPTS")"
-else
-    mathjax="$PREFIX/lib/mathjax"
-    bin_dir="$PREFIX/bin"
-fi
-
-
-
-
-
+mathjax="$PREFIX/lib/mathjax"
 mkdir -p "$mathjax"
-mv ./es5 "$mathjax/"
 
+rm -f *.md .gitignore .travis.yml bower.json composer.json latest.js package.json metadata_conda_debug.yaml
+cp -r . "$mathjax/"
+rm $mathjax/*.sh "$mathjax/LICENSE"
 
+mkdir -p "$PREFIX/bin"
+cp "${RECIPE_DIR}/mathjax-path" "$PREFIX/bin/"
+chmod +x "$PREFIX/bin/mathjax-path"
 
-mkdir -p "${bin_dir}"
-cp "${RECIPE_DIR}/mathjax-path" "${bin_dir}/"
-if [[ "$OSTYPE" == "msys" ]]; then
-    cp "${RECIPE_DIR}/mathjax-path.bat" "${bin_dir}/"
-else
-    chmod +x "${bin_dir}/mathjax-path"
-fi
