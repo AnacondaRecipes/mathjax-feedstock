@@ -3,26 +3,13 @@ set -euo pipefail
 IFS=$'\n\t'
 
 mathjax="$PREFIX/lib/mathjax"
-mkdir -p "$mathjax" || exit 1
+mkdir -p "$mathjax"
 
-mv config "$mathjax/" || exit 1
-mv docs "$mathjax/" || exit 1
-mv extensions "$mathjax/" || exit 1
-# Unable to move fonts, copy instead
-cp -r fonts "$mathjax/" || exit 1
-rm -rf fonts
-mv jax "$mathjax/" || exit 1
-mv localization "$mathjax/" || exit 1
-mv test "$mathjax/" || exit 1
-mv unpacked "$mathjax/" || exit 1
-
-rm *.md ".gitignore" ".travis.yml" "bower.json" "composer.json" "latest.js" "package.json" || exit 1
-cwd="$(pwd)"
-cp -r "$cwd/." "$mathjax/"
-cd "$mathjax"
-rm *.sh LICENSE
-cd "$cwd"
+rm -f *.md .gitignore .travis.yml bower.json composer.json latest.js package.json metadata_conda_debug.yaml
+cp -r . "$mathjax/"
+rm $mathjax/*.sh "$mathjax/LICENSE"
 
 mkdir -p "$PREFIX/bin"
 cp "${RECIPE_DIR}/mathjax-path" "$PREFIX/bin/"
 chmod +x "$PREFIX/bin/mathjax-path"
+
