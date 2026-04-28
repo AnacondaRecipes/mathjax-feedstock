@@ -1,5 +1,5 @@
 {% set name = "mathjax" %}
-{% set version = "2.7.5" %}
+{% set version = "4.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mathjax/MathJax/archive/{{ version }}.tar.gz
-  sha256: a25e5736553eef7b05ba00df133ad36d8f7b3b967f1e32d2f7505ac77427946f
+  sha256: 0f234da8c0198576101cad9646753bce10e3c9db6f323220403eca7a819271c9
 
 build:
   number: 0
@@ -28,12 +28,12 @@ about:
   license_family: Apache
   license_file: LICENSE
   summary: |
-    Beautiful math in all browsers. MathJax is an open-source JavaScript display engine 
+    Beautiful math in all browsers. MathJax is an open-source JavaScript display engine
     for LaTeX, MathML, and AsciiMath notation that works in all browsers. (use mathjax-path script)
   description: |
-    MathJax is a JavaScript library that enables the rendering of mathematical equations 
+    MathJax is a JavaScript library that enables the rendering of mathematical equations
     and symbols on web pages. It provides a powerful and flexible solution for displaying
-    math content in a browser without the need for plugins or specific fonts. MathJax supports 
+    math content in a browser without the need for plugins or specific fonts. MathJax supports
     a wide range of math markup languages, including LaTeX, MathML, and AsciiMath.
   doc_url: https://github.com/mathjax/MathJax
   dev_url: https://github.com/mathjax/MathJax
