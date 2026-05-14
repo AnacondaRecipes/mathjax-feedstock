@@ -1,5 +1,5 @@
 {% set name = "mathjax" %}
-{% set version = "2.7.5" %}
+{% set version = "4.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,24 @@ package:
 
 source:
   url: https://github.com/mathjax/MathJax/archive/{{ version }}.tar.gz
-  sha256: a25e5736553eef7b05ba00df133ad36d8f7b3b967f1e32d2f7505ac77427946f
+  sha256: 9ff9577277186f8f745edb53e2deb7e84b19994c6ef2be43f741f26673378828
 
 build:
   number: 0
 
-requirements:
-
 test:
-  requires:
-    - m2-bash  # [win]
   commands:
-    - mathjax-path  # [unix]
+    - mathjax-path                                # [unix]
+    - test -f "$(mathjax-path)/tex-chtml.js"      # [unix]
+    - test -d "$(mathjax-path)/input"             # [unix]
+    - test -d "$(mathjax-path)/sre"               # [unix]
+    - test -d "$(mathjax-path)/ui"                # [unix]
+
     - cmd /c "%PREFIX%\Scripts\mathjax-path.bat"  # [win]
-    - bash "%PREFIX%\Scripts\mathjax-path"  # [win]
+    - if exist "%PREFIX%\Library\lib\mathjax\tex-chtml.js" (exit 0) else (exit 1)  # [win]
+    - if exist "%PREFIX%\Library\lib\mathjax\input" (exit 0) else (exit 1)         # [win]
+    - if exist "%PREFIX%\Library\lib\mathjax\sre" (exit 0) else (exit 1)           # [win]
+    - if exist "%PREFIX%\Library\lib\mathjax\ui" (exit 0) else (exit 1)            # [win]
 
 about:
   home: https://github.com/mathjax/MathJax
